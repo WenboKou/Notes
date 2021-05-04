@@ -27,3 +27,6 @@ We usually split raw data to two parts, training set and test set. Test set can'
 * In practice, people prefer to avoid cross-validation in favor of having a single validation split, since cross-validation can be computationally expensive. 
 * Typical number of folds you can see in practice would be 3-fold, 5-fold or 10-fold cross-validation.
 *  There is a question of whether you should use the full training set with the best hyperparameters, since the optimal hyperparameters might change if you were to fold the validation data into your training set (since the size of the data would be larger). In practice it is cleaner to not use the validation data in the final classifier and consider it to be burned on estimating the hyperparameters. **Here is a problem, what about cross-validation?**
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
