@@ -1,0 +1,43 @@
+Assumption: Each class comes from normal distribution(Gaussian)
+$X \sim N(\mu, \sigma^2): f(x)=\frac{1}{(\sqrt{2\pi\sigma})^d}e^{-\frac{||x-\mu||^2}{2\sigma^2}}$.
+Suppose for each class $C$ prior $\pi_C = P(Y=C)$.
+Given $x$, Bayes decisions rule $r^*(x)$ predicts class $C$ that maximizes $f(X=x|Y=C)\pi_C$.(minimize the risk function. the maximum value is the true value, then we can eliminate it in the risk function.)
+It is equivalent to maximize $Q_c(x)=ln((\sqrt{2\pi})^df_C(x)\pi_{C})=-\frac{||x-\mu_{C}||^2}{2\sigma^2_C}-dln\sigma_C+ln\pi_C$.
+We can incorporate the asymmetrical loss function the same way we incorporate the prior $\pi_C$.
+
+### Quadratic Discriminant Analysis(QDA)
+
+Suppose only 2 class C,D. Then
+$$
+r^*=\begin{cases}
+    C \quad if\; Q_C(x)-Q_D(x)>0\\
+    D \quad otherwise.
+\end{cases}
+$$
+[Our goal is always to minimize the risk function, thus choose the right class when the weighted posterior estimation is bigger]
+
+One of the great things about QDA is that we can determine the probability that the classification is correct.
+Use Bayes in 2-class case.
+$P(Y=C|X)=\frac{f(X|Y=C)\pi_C}{f(X|Y=C)\pi_Cf(X|Y=D)\pi_D}$
+$P(Y=C|X=x)=\frac{e^{Q_C{(x)}}}{e^{Q_C{(x)}}+e^{Q_D{(x)}}}=\frac{1}{1+e^{Q_D{(x)}-Q_C{(x)}}}$
+$s(\gamma)=\frac{1}{1+e^{-\gamma}}$ this is logistic fn aka sigmoid fn. $Q_C{(x)}-Q_D{(x)}$ is the decision fn.
+
+**I still don't understand how to determine the probability? Guess: change the parameters**
+
+### Linear Discriminant Analysis(LDA)
+[LDA is a variant of QDA with linear decision boundaries. It's less likely to overfit than QDA.]
+$Q_C(x)-Q_D(x)=\frac{(\mu_C-\mu_D)\cdot x}{\sigma^2}-\frac{||\mu_C||^2-||\mu_D||^2}{2\sigma^2}+ln\pi_C-ln\pi_D$
+This can be written as $\omega\cdot x+\alpha$. It's a linear classifier! Choose C that maximizes linear discriminant fn
+$\frac{\mu_C\cdot x}{\sigma^2}-\frac{||\mu_C||^2}{2\sigma^2}+ln\pi_C$
+In 2-class case: decision boundary is $\omega \cdot x + \alpha=0$
+posterior is $P(Y=C|X=x)=s(\omega \cdot x + \alpha)$
+The effort of $\omega \cdot x + \alpha$ is to scale and translate the sigmoid fn.
+
+### MAXIMUM LIKELIHOOD ESTIMATION OF PARAMETERS
+To use Gaussian discriminant analysis, we must first fit Gaussians to the sample points and estimate the class prior probabilities.
+
+For QDA: estimate $\hat\mu$ and $\hat\sigma$ for each class separately and estimate the priors:
+$\hat\pi_C = \frac{n_C}{\sum_Dn_D}$ total sample points in all class.
+
+For LDA: same means and priors as previous; one variance for all classes:
+$\hat\sigma^2 = \frac{1}{dn}\sum_C\sum_{i:y_i=C}||X_i-\hat\mu_C||^{2}$.
