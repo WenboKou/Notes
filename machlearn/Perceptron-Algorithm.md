@@ -17,7 +17,7 @@ L(z,y_i)=\begin{cases}
 -y_iz\quad otherwise. 
 \end{cases}
 $
-Define *rise function* (aka *objective function* or *cost function*)
+Define *risk function* (aka *objective function* or *cost function*)
 $
 R(\omega)=\frac{1}{n}\sum_{i=1}^{n}L(X_i\cdot\omega,y_i)=\frac{1}{n}\sum_{i\in V}-y_iX_i\cdot\omega
 $ where$V$is the set of indices $i$ for which $y_iX_i\cdot\omega<0$, essentially $V$ contains the indices of samples which are incorrectly classified.
