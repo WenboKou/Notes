@@ -45,4 +45,4 @@ $A^{-2}=V\Lambda V^TV\Lambda V^T=V\Lambda^{-2}\Lambda^T$
 Given $\Sigma$, we find a symmetric square root $A=\Sigma^{1/2}$:
 compute eigenvector/values of $\Sigma$
 take square root of eigenvalues
-reassemble matrix $A$
+reassemble matrix $A$.

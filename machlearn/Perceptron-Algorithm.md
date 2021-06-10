@@ -53,7 +53,7 @@ $||\omega||=1$, signed distance from hyperplane to $X_i$ is $\omega\cdot X_i + \
 Otherwise, it's$\frac{\omega}{||\omega||}\cdot X_i + \frac{\alpha}{||\omega||}$.
 **There are two ways to illustrate why this is signed distance, I will draw two pic to illustrate this later.**
 Hence the margin is $\min_{i}\frac{1}{||\omega||}|\omega\cdot X_i+\alpha|\geq\frac{1}{||\omega||}$, consider the constraints we can easily get this inequality.
-To maximize the margin $\rightarrow$ maximize $||\omega||$ $\rightarrow$ minimize$||\omega||$.
+To maximize the margin $\rightarrow$ maximize $\frac{1}{||\omega||}$ $\rightarrow$ minimize$||\omega||$.
 We have optimization problem:
 
 **Find $\omega$ and $\alpha$ that minimize $||\omega||^2$
