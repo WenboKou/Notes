@@ -55,3 +55,49 @@ Advantages:
 Disadvantages:
 * Very sensitive to outlies, because errors are squares!
 * Fails if $X^TX$ is singular.[Which means the problem is underconstrained, has multiple solutions. How to handle this case is mentioned in DIS6].
+
+
+### LOGISTIC REGRESSION
+Usually used for classification. The input $y_i's$ can be probabilities, but in most applications they're all 0 or 1.
+
+QDA, LDA:generative models
+logistic regression: discriminative model
+[In LDA, the posterior probabilities are often modeled well by a logistic function. Why not just try to fit logistic function directly to the data, skipping Gaussians?]
+
+With $X$ and $\omega$ including the fictitious dimension; $\alpha$ is $\omega's$ last component...
+
+Find $\omega$ that minimizes:
+$J = \sum_{i=1}^{n}L(X_i\cdot \omega,y_i)=-\sum_{i=1}^{n}(y_ilns(X_i\cdot \omega)+(1-y_i)ln(1-s(X_i\cdot \omega)))$
+This is convex! Solve by gradient descent.
+To do gradient descent, we'll need to compute some derivatives.
+$s^{'}(\gamma)=\frac{d}{d\gamma}\frac{1}{1+e^{-\gamma}}=\frac{e^{-\gamma}}{(1+e^{-\gamma})^2}=s(\gamma)(1-s(\gamma))$
+
+Let $s_i=s(X_i\cdot \omega)$
+$\nabla_{\omega}J=-\sum(\frac{y_i}{s_i}\nabla s_i - \frac{1-y_i}{1-s_i}\nabla s_i)=-\sum(\frac{y_i}{s_i} - \frac{1-y_i}{1-s_i})s_i (1-s_i)X_i=-\sum(y_i-s_i)X_i=-X^{T}(y-s(X\omega))$
+
+Gradient descent rule: $\omega \leftarrow \omega + \epsilon X^T(y-s(X\omega))$
+Stochastic gradient descent: $\omega \leftarrow \omega + \epsilon (y_i-s(X_i\cdot  \omega))X_i$
+
+[This looks a lot like the perceptron learning rule. The only difference is that "$-s_{i}$" is new. Starting from $\omega=0$ works well in practice.]
+
+If sample pts are linearly separable and $\omega \cdot x = 0$ separates them(with decision boundary touching no pt), scaling $\omega$ to have infinite length causes $s(X_i\cdot\omega) \rightarrow 1$ for a pt $i$ in class $C$, $s(X_i\cdot\omega)\rightarrow 0$ for a pt not in class $C$, and $J(\omega)\rightarrow 0$[in the limit as $||\omega||\rightarrow \infty$]. That's because for pts belong to $C$, $X_i\cdot \omega$ is positive, not in $C$ it's negative.
+This is the only way to get the cost function $J$ to approach zero. Therefore, logistic regression always separates linearly separable pts!
+
+### Least-Squares Polynomial Regression
+
+Replace each $X_i$ with feature vector $\Phi(X_i)$ with all terms of degree 0 ... p 
+e.g.,$\Phi(X_i)=\begin{bmatrix}
+    X_{i1}^2 &X_{i1}X_{i2}&X_{i2}^2&X_{i1}&X_{i2}&1
+\end{bmatrix}^T$
+[We added  fictitious dimension "1", so we don't need to add it again to do linear or logistic regression. The basis covers all polynomials quadratic in $X_{i1}$ and $X_{i2}$]
+
+Logistic Regression + quadratic features = same form of posteriors as QDA.
+
+### Weight Least-Squares Regression
+[The idea of weighted least-squares is that some sample pts might be more trusted than others, or there might be certain pts you want to fit particularly well. Assign more trusted pts a higher weight and a lower weight to outliers.]
+
+Assign each sample pt a wight $\omega_i$; collect $\omega_i$'s in $n\times n$ diagonal matrix $\Omega$.
+
+Greater $\omega_i \rightarrow$ work harder to minimize $|\hat{y_i}-y_i|^2$.
+Find $\omega$ that minimizes $(X\omega - y)^T\Omega(X\omega - y)=\sum_{i=1}^{n}\omega_i(X_i\omega-y_i)^2$
+[As with ordinary regression, find the minimum by setting the gradient to zero, which leads to normal equations: $X^{T}\Omega X\omega = X^{T}\Omega y$]
