@@ -79,3 +79,16 @@ I don't know how to prove most of the statements above. Maybe later I will figur
 
 **Example: Least-Squares Linear Reg.**
 整个这一部分我都看不懂，兴许以后会补上。
+现在补上
+For simplicity, no fictitious dimension.
+Model: $g(z)=v^T z$ [We could fit $g$ perfectly with a linear $h$ if not for the noise in the training set.]
+Let $e$ be noise $n$-vector, $e_i \sim \mathcal{N(0,\sigma^2)}$
+Training labels: $y=Xv+e$, [$X$ &  $y$ are the inputs to linear regression. We don't know  $v$ or $e$.]
+Lin. reg.computes weights:
+$\omega = X^{+} y=X^{+}(X v +  e) = v + X^{+} e$, 其中$X^{+}=(X^T X)^{-1}X^T$ [set the derivative of risk fn to zero]
+We want $\omega = v$, but the noise in $y$ becomes noise in $\omega$.
+BIAS is $E[h(z)]-g(z) = E[\omega^T z] - v^T z = E[z^T X^{+} e] = z^{T} E[X] E[e] = 0$
+VARIANCE is $\operatorname{Var}(h(z))=\operatorname{Var}(\omega^T z)=\operatorname{Var}(z^T X^{+} e)=\sigma^2 z^T(X^T X)^{-1}X^TX(X^TX)^{-1} z=\sigma^2 z^TX^TX z$
+
+If we choose coordinate system so $E[X]=0$, then $X^T X \rightarrow n\operatorname{Cov}(D)$ as $n \rightarrow \infty$, so one can show that for $z \sim D$, [**Still don't know what is D? What did I miss?**]
+$Var(h(z)) \approx \sigma^2 \frac{d}{n}$. So adding features will increase variance, adding samples will decrease it.

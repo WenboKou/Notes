@@ -22,7 +22,8 @@ $P(Y=C|X)=\frac{f(X|Y=C)\pi_C}{f(X|Y=C)\pi_Cf(X|Y=D)\pi_D}$
 $P(Y=C|X=x)=\frac{e^{Q_C{(x)}}}{e^{Q_C{(x)}}+e^{Q_D{(x)}}}=\frac{1}{1+e^{Q_D{(x)}-Q_C{(x)}}}$
 $s(\gamma)=\frac{1}{1+e^{-\gamma}}$ this is logistic fn aka sigmoid fn. $Q_C{(x)}-Q_D{(x)}$ is the decision fn.
 
-**I still don't understand how to determine the probability? Guess: change the parameters**
+**I still don't understand how to determine the probability? Guess: change the parameters
+My guess is right. Since we are computing probability.**
 
 ### Linear Discriminant Analysis(LDA)
 [LDA is a variant of QDA with linear decision boundaries. It's less likely to overfit than QDA.]
