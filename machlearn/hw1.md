@@ -1,4 +1,6 @@
-``` python
+# hw1
+
+```python
 import sys
 if sys.version_info[0] < 3:
     raise Exception("Python 3 not detected.")
@@ -41,7 +43,7 @@ for training_size in training_sizes:
     predicted_train = clf.predict(mnistX_train[:training_size])
     validation_acc.append(accuracy_score(mnistY_val, predicted_val))
     training_acc.append(accuracy_score(mnistY_train[:training_size], predicted_train))
-    
+
 
 x = np.arange(len(training_sizes))  # the label locations
 width = 0.35  # the width of the bars
@@ -72,7 +74,7 @@ for training_size in training_sizes:
     predicted_train = clf1.predict(spamX_train[:training_size])
     validation_acc1.append(accuracy_score(spamY_val, predicted_val))
     training_acc1.append(accuracy_score(spamY_train[:training_size], predicted_train))
-    
+
 
 x = np.arange(len(training_sizes))  # the label locations
 width = 0.35  # the width of the bars
@@ -103,7 +105,7 @@ for training_size in training_sizes:
     predicted_train = clf2.predict(cifar10X_train[:training_size])
     validation_acc2.append(accuracy_score(cifar10Y_val, predicted_val))
     training_acc2.append(accuracy_score(cifar10Y_train[:training_size], predicted_train))
-    
+
 x = np.arange(len(training_sizes))  # the label locations
 width = 0.35  # the width of the bars
 
@@ -196,7 +198,7 @@ for parameter in paraC:
     predicted_train = clf.predict(mnistX_train[:training_size])
     validation_acc.append(accuracy_score(mnistY_val, predicted_val))
     training_acc.append(accuracy_score(mnistY_train[:training_size], predicted_train))
-    
+
 
 x = np.arange(len(paraC))  # the label locations
 width = 0.35  # the width of the bars
@@ -227,7 +229,7 @@ for parameter in paraC:
     predicted_train = clf1.predict(spamX_train[:training_size])
     validation_acc1.append(accuracy_score(spamY_val, predicted_val))
     training_acc1.append(accuracy_score(spamY_train[:training_size], predicted_train))
-    
+
 
 x = np.arange(len(paraC))  # the label locations
 width = 0.35  # the width of the bars
@@ -258,7 +260,7 @@ for parameter in paraC:
     predicted_train = clf2.predict(cifar10X_train[:training_size])
     validation_acc2.append(accuracy_score(cifar10Y_val, predicted_val))
     training_acc2.append(accuracy_score(cifar10Y_train[:training_size], predicted_train))
-    
+
 x = np.arange(len(paraC))  # the label locations
 width = 0.35  # the width of the bars
 
@@ -295,7 +297,7 @@ for parameter in paraC:
         bY = spamY[(i+1)*1000:5000]
         spamX_train, spamY_train = np.concatenate((aX, bX), axis=0), np.concatenate((aY, bY), axis=0)
         spamX_val, spamY_val = spamX[i*1000:(i+1)*1000], spamY[i*1000:(i+1)*1000]
-        
+
         clf1.fit(spamX_train, spamY_train)
         predicted_val = clf1.predict(spamX_val)
         predicted_train = clf1.predict(spamX_train)
@@ -303,7 +305,7 @@ for parameter in paraC:
         train_acc += accuracy_score(spamY_train, predicted_train)
     validation_acc1.append(val_acc/5)
     training_acc1.append(train_acc/5)
-    
+
 
 x = np.arange(len(paraC))  # the label locations
 width = 0.35  # the width of the bars
@@ -323,45 +325,38 @@ ax.legend()
 fig.tight_layout()
 
 plt.show()
-
-
 ```
 
-### *(a)*
-$$\tag{1}
-\frac{\partial E(3)}{\partial \omega}=2\omega - \sum_{i=1}^{n}\lambda_iy_ix_i$$
-$$\tag{2}
-\frac{\partial E(3)}{\partial \alpha} = - \sum_{i=1}^{n}\lambda_iy_i
+## _\(a\)_
+
+$$\tag{1} \frac{\partial E(3)}{\partial \omega}=2\omega - \sum_{i=1}^{n}\lambda_iy_ix_i$$ $$\tag{2} \frac{\partial E\(3\)}{\partial \alpha} = - \sum\_{i=1}^{n}\lambda\_iy\_i
+
 $$
 Let $Eq(1) = 0,\;Eq(2)=0$ we get
 $$\tag{3}
 \sum_{i=1}^{n}\lambda_iy_i = 0\\
 \omega = \frac{1}{2}\sum_{i=1}^{n}\lambda_iy_ix_i
 $$
-substitute $(3)$ into $Eq(3)$ to get $Eq(4)$.
 
-### *(b)*
-substitute $(3)$ into it.
+substitute $\(3\)$ into $Eq\(3\)$ to get $Eq\(4\)$.
 
-### *(c)*
-$\lambda_i^{*}>0$ means $y_i(X_i\cdot \omega^{*}+\alpha^{*})=1$
-All these points' distance to decision boundary is 0.
+## _\(b\)_
 
-### *(d)*
-Consider $Eq(3)$ and Q(c), not support vectors' $\lambda_i^{*}=0$ which means they don't effect $Eq(3)$.
+substitute $\(3\)$ into it.
 
-### *(e)*
-**linearly separable:**
-This data is linearly separable because there is a line (actually many lines) from lower left to upper right that separates the red and blue classes.
+## _\(c\)_
 
-linearly separable $\iff$ for all points in class $C$, $X_i\cdot \omega + \alpha > 0 \iff \exist \varepsilon>0 \;s.t. \; X_i\cdot \omega + \alpha \geq \varepsilon \iff X_i\cdot \frac{\omega}{\varepsilon} + \frac{\alpha}{\varepsilon} \geq 1$.
-昨天理解错了题意，问的是两个类别里都至少有一个点是support vector.
+$\lambda\_i^{_}&gt;0$ means $y\_i\(X\_i\cdot \omega^{_}+\alpha^{\*}\)=1$ All these points' distance to decision boundary is 0.
 
-Proof:
-Consider all $X_i \in C$, if don't exist support vector in this class. $X_i\cdot \omega + \alpha > 1$. Let $d = \min_{X_i\in C}X_i\cdot \omega + \alpha - 1 > 0$. 
-So $X_i\cdot \omega + \alpha \geq 1 + d \iff X_i\cdot \frac{\omega}{1+d} + \frac{\alpha}{1+d} \geq 1$. 
-$||w||>||\omega/(1+d)||$.
-For all points $X_j$ not in $C$, $X_j\cdot \omega + \alpha \leq 1 < 1+d \iff X_j\cdot \frac{\omega}{1+d} + \frac{\alpha}{1+d} < 1$.
-$\frac{\omega}{1+d}$ also satisfies the constrains and its module is less than $\omega$. So $\omega$ is not the solution.
-The same process of proof is applied for points not in $C$.
-Thus there is at least one support vector for each class.
+## _\(d\)_
+
+Consider $Eq\(3\)$ and Q\(c\), not support vectors' $\lambda\_i^{\*}=0$ which means they don't effect $Eq\(3\)$.
+
+## _\(e\)_
+
+**linearly separable:** This data is linearly separable because there is a line \(actually many lines\) from lower left to upper right that separates the red and blue classes.
+
+linearly separable $\iff$ for all points in class $C$, $X\_i\cdot \omega + \alpha &gt; 0 \iff \exist \varepsilon&gt;0 \;s.t. \; X\_i\cdot \omega + \alpha \geq \varepsilon \iff X\_i\cdot \frac{\omega}{\varepsilon} + \frac{\alpha}{\varepsilon} \geq 1$. 昨天理解错了题意，问的是两个类别里都至少有一个点是support vector.
+
+Proof: Consider all $X_i \in C$, if don't exist support vector in this class. $X\_i\cdot \omega + \alpha &gt; 1$. Let $d = \min_{X\_i\in C}X\_i\cdot \omega + \alpha - 1 &gt; 0$. So $X\_i\cdot \omega + \alpha \geq 1 + d \iff X\_i\cdot \frac{\omega}{1+d} + \frac{\alpha}{1+d} \geq 1$. $\|\|w\|\|&gt;\|\|\omega/\(1+d\)\|\|$. For all points $X\_j$ not in $C$, $X\_j\cdot \omega + \alpha \leq 1 &lt; 1+d \iff X\_j\cdot \frac{\omega}{1+d} + \frac{\alpha}{1+d} &lt; 1$. $\frac{\omega}{1+d}$ also satisfies the constrains and its module is less than $\omega$. So $\omega$ is not the solution. The same process of proof is applied for points not in $C$. Thus there is at least one support vector for each class.
+

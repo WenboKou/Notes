@@ -1,0 +1,22 @@
+# Table of contents
+
+* [Initial page](README.md)
+* [machlearn](machlearn/README.md)
+  * [11 Newton's Method and ROC](machlearn/11-newtons-method-and-roc.md)
+  * [17-19 Neural Network](machlearn/17-19-neural-network.md)
+  * [9 Gaussian-Discriminant-Analysis](machlearn/9-gaussian-discriminant-analysis.md)
+  * [12 Statistical Justifications](machlearn/12-statistical-justifications.md)
+  * [3 Perceptron-Algorithm](machlearn/3-perceptron-algorithm.md)
+  * [Decision Tree Variations](machlearn/15-more-decision-trees-ensemble-learning-and-random-forest.md)
+  * [4 Soft-Margin-SVM](machlearn/4-soft-margin-svm.md)
+  * [10 Regression](machlearn/10-regression.md)
+  * [hw1](machlearn/hw1.md)
+  * [13 Shrinkage-Ridge Regression Subset Selection and Lasso](machlearn/13-shrinkage-ridge-regression-subset-selection-and-lasso.md)
+  * [Kernels](machlearn/16-the-kernel-trick.md)
+  * [8 Eigenvectors AND Anisotropic Gaussians](machlearn/8-eigenvectors-and-anisotropic-gaussians.md)
+  * [20 Unsupervised Learning and Principal Components Analysis](machlearn/20-unsupervised-learning-and-principal-components-analysis.md)
+  * [14 Decision Trees](machlearn/14-decision-trees.md)
+  * [aka Risk Minimization](machlearn/6-decision-theory.md)
+* [eecs127](eecs127/README.md)
+  * [Vectors](eecs127/linear-algebra-review.md)
+
