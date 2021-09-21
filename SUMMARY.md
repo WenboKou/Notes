@@ -17,7 +17,9 @@
   * [20 Unsupervised Learning and Principal Components Analysis](machlearn/20-unsupervised-learning-and-principal-components-analysis.md)
   * [14 Decision Trees](machlearn/14-decision-trees.md)
   * [aka Risk Minimization](machlearn/6-decision-theory.md)
-* [Albany1206 Menu](albany1206-menu.md)
+* [Albany1206 Menu](albany1206-menu/README.md)
+  * [玉米排骨汤](albany1206-menu/yu-mi-pai-gu-tang.md)
+  * [黄焖鸡](albany1206-menu/huang-men-ji.md)
 * [eecs127](eecs127/README.md)
   * [Vectors](eecs127/linear-algebra-review.md)
 

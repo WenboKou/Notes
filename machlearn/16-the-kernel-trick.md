@@ -76,7 +76,7 @@ $\Phi\(X\_i\)\cdot \omega = \(\Phi\(X\)\omega\)\_i = \(\Phi\(X\)\Phi\(X\)^Ta\)\_
 
 * $a \leftarrow \begin{bmatrix}
 
-    y\_1 & 0 & \cdots 0
+  y\_1 & 0 & \cdots 0
 
   \end{bmatrix}^T$ \[starting point is arbitrary, but can't be zero\]
 

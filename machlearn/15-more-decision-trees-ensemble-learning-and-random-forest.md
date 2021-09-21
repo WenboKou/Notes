@@ -17,7 +17,7 @@ Cost $J\(S\)=\frac{1}{\|S\|}\sum\_{i \in S}\(y\_i - \mu\_s\)^2$, where $\mu\_s$ 
 * Limit tree depth\(for speed\)
 * Limit tree size\(big data sets\)不懂tree size是什么？
 * Complete tree may overfit
-* Given noise or overlapping distributions, purity of leaves  is counterproductive; better to estimate posterior probs\(不懂这句话什么意思,下面的话可以解释\)
+* Given noise or overlapping distributions, purity of leaves is counterproductive; better to estimate posterior probs\(不懂这句话什么意思,下面的话可以解释\)
 
   \[When you have overlapping class distributions, refining the tree down to one sample point per leaf is absolutely guaranteed to overfit. Alternatively, you can use the pts to estimate a posterior probability for each leaf, and return that.\]
 

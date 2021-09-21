@@ -32,7 +32,7 @@ A symmetric matrix $M$ is _positive definite_ if $\omega^T M \omega &gt; 0$ for 
 
 Choose n mutually orthogonal unit n-vectors $v1,\cdots,v\_n$. Let $V=\[v\_1\;v\_2\;\cdots\;v\_n\]$\[This is a $n\times n$ matrix\] Observe: $V^TV=I\rightarrow V^T=V^{-1}\rightarrow VV^{T}=I$
 
-Choose some radii $\lambda\_i$: Let $\Lambda=\begin{bmatrix} \lambda\_1 & 0 & \cdots & 0\ 0 & \lambda\_2 & \cdots & 0\ \cdots \ 0 & 0 & \cdots & \lambda\_n\ \end{bmatrix}$
+Choose some radii $\lambda\_i$: Let $\Lambda=\begin{bmatrix} \lambda\_1 & 0 & \cdots & 0 0 & \lambda\_2 & \cdots & 0 \cdots  0 & 0 & \cdots & \lambda\_n \end{bmatrix}$
 
 Define "eigenvectors" $AV=V\Lambda\Rightarrow AVV^T=V\Lambda V^T\Rightarrow A=V\Lambda V^T=\sum\_{i=1}^n\lambda\_iv\_iv\_i^T$
 

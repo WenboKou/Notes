@@ -6,7 +6,7 @@ Find $\omega$ that minimizes $\|\|X\omega-y\|\|^2 + \lambda\|\|\omega^{'}\|\|^2=
 
 * Guarantees positive definite norm eq'ns; always unique solution.
 
-  take derivative of the risk fn and set it equals to 0. 
+  take derivative of the risk fn and set it equals to 0.
 
   * Without penalty. We get:
 

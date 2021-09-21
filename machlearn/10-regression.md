@@ -27,7 +27,7 @@ We can mix the three parts freely to get different regression algorithms.
 
 ## Least-Squares Linear Regression\(Gauss, 1801\)
 
-Find $\omega,\alpha$ that minimizes $\sum\_{i=1}^n\(X\_i\cdot \omega + \alpha - y\_i\)^2$ Recall fictitious dimension trick: rewrite $h\(x\)=x\cdot \omega + \alpha$ as $\begin{bmatrix} x\_1&x\_2&1 \end{bmatrix}\cdot$ $\begin{bmatrix} \omega\_1 \ \omega\_2 \ \alpha \end{bmatrix}$
+Find $\omega,\alpha$ that minimizes $\sum\_{i=1}^n\(X\_i\cdot \omega + \alpha - y\_i\)^2$ Recall fictitious dimension trick: rewrite $h\(x\)=x\cdot \omega + \alpha$ as $\begin{bmatrix} x\_1&x\_2&1 \end{bmatrix}\cdot$ $\begin{bmatrix} \omega\_1  \omega\_2  \alpha \end{bmatrix}$
 
 We can rewrite the optimization problem as $\|\|X\omega-y\|\|^2=RSS\(\omega\)$ \[Residual Sum of Squares\]
 
